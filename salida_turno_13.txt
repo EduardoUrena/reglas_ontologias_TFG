@@ -1,0 +1,188 @@
+FIRE    2 contar_puntuacion_cartas_ofertadas_recursos_caliente_no_activos: [gen6861],[gen6863],[gen6913]
+Jugador3 da 6 puntos de felicidad con su planeta PRP-2 ofertado, con lo que acumula 6 puntos y 1 planetas de recursos ofertados.
+
+FIRE    3 contar_puntuacion_cartas_ofertadas_habitable_caliente: [gen6861],[gen6886]
+Jugador1 tiene 6 puntos de felicidad con su planeta PTE-3 ofertado, con lo que acumula 6 puntos y 1 planetas habitables ofertados.
+
+FIRE    4 contar_puntuacion_cartas_ofertadas_habitable_caliente_no_activos: [gen6861],[gen6862],[gen6875]
+Jugador2 da -1 puntos de felicidad con su planeta PFE-4 ofertado, con lo que acumula -1 puntos y 1 planetas habitables ofertados.
+
+FIRE    5 obtener_beneficio_por_planeta_excelente_clima_diferente: [gen6861],[gen6862],[gen6875],f-1
+<== f-1     (beneficio_adicional (empleado "Jugador2") (beneficio 0.0))
+==> f-11    (beneficio_adicional (empleado "Jugador2") (beneficio 0.2))
+El planeta PFE-4 de Jugador2 da 0.2 puntos de beneficio adicional al tener un clima diferente al de la civilizacion del jugador activo y ser de calidad excelente.
+
+FIRE    6 determinar_utilidad_cartas_ofertadas_activo: f-0,,[gen6861],[gen6862],[gen6863],,,,f-11,f-2
+Jugador1 acumula 6 puntos de felicidad con sus planetas ofertados.
+
+Jugador2 da -1 puntos de felicidad con sus planetas ofertados.
+
+Jugador3 da 6 puntos de felicidad con sus planetas ofertados.
+
+==> f-12    (puntos_utilidad_activo (empleado "Jugador2") (utilidad -6.8))
+==> f-13    (puntos_utilidad_activo (empleado "Jugador3") (utilidad 0.0))
+Jugador1 obtendria una utilidad de -6.8 si acepta la oferta de Jugador2, teniendo en cuenta el posible beneficio adicional y la diferencia de planetas ofertados.
+
+Jugador1 obtendria una utilidad de 0.0 si acepta la oferta de Jugador3, teniendo en cuenta el posible beneficio adicional y la diferencia de planetas ofertados.
+
+==> f-14    (utilidad_cartas_ofertadas_impresa)
+
+FIRE    7 determinar_posible_civilizacion_excelente_ofrecidos: f-14,[gen6861],[gen6862],[gen6875],,f-3
+<== f-3     (posible_civilizacion (empleado "Jugador2") (civilizacion frio) (puntos_creencia_si 0.0) (puntos_creencia_no 0.3) (puntos_felicidad 0.0))
+==> f-15    (posible_civilizacion (empleado "Jugador2") (civilizacion frio) (puntos_creencia_si 0.0) (puntos_creencia_no 1.0) (puntos_felicidad 0.0))
+Se suman 0.7 puntos a la creencia de que Jugador2 no tiene una civilizacion de clima frio, al ofrecer un planeta de clima frio de calidad excelente.
+
+==> f-16    (planeta_comprobado (planeta PFE-4) (empleado "Jugador2"))
+
+FIRE    8 determinar_posible_civilizacion_excelente_aceptados: f-14,[gen6861],[gen6863],[gen6886],,f-7
+<== f-7     (posible_civilizacion (empleado "Jugador3") (civilizacion templado) (puntos_creencia_si 0.55) (puntos_creencia_no 0.0) (puntos_felicidad 0.0))
+==> f-17    (posible_civilizacion (empleado "Jugador3") (civilizacion templado) (puntos_creencia_si 1.15) (puntos_creencia_no 0.0) (puntos_felicidad 0.0))
+Se suman 0.6 puntos a la creencia de que Jugador3 si tiene una civilizacion de clima templado, al querer aceptar un planeta de clima templado de calidad excelente.
+
+==> f-18    (planeta_comprobado (planeta PTE-3) (empleado "Jugador3"))
+
+FIRE    9 determinar_posible_civilizacion_excelente_aceptados: f-14,[gen6861],[gen6862],[gen6886],,f-4
+<== f-4     (posible_civilizacion (empleado "Jugador2") (civilizacion templado) (puntos_creencia_si 0.2) (puntos_creencia_no 0.0) (puntos_felicidad 0.0))
+==> f-19    (posible_civilizacion (empleado "Jugador2") (civilizacion templado) (puntos_creencia_si 0.8) (puntos_creencia_no 0.0) (puntos_felicidad 0.0))
+Se suman 0.6 puntos a la creencia de que Jugador2 si tiene una civilizacion de clima templado, al querer aceptar un planeta de clima templado de calidad excelente.
+
+==> f-20    (planeta_comprobado (planeta PTE-3) (empleado "Jugador2"))
+
+FIRE   10 calcular_puntuacion_posibles_civilizaciones_cartas_ofertadas_no_activos: f-14,[gen6861],[gen6863],[gen6913],f-6,f-17,f-8
+<== f-6     (posible_civilizacion (empleado "Jugador3") (civilizacion frio) (puntos_creencia_si 0.0) (puntos_creencia_no 0.5) (puntos_felicidad 0.0))
+==> f-21    (posible_civilizacion (empleado "Jugador3") (civilizacion frio) (puntos_creencia_si 0.0) (puntos_creencia_no 0.5) (puntos_felicidad -6.0))
+Jugador3 perderia 6 puntos de felicidad al dar el planeta PRP-2 a Jugador1 si tuviera una civilizacion de clima frio.
+
+<== f-17    (posible_civilizacion (empleado "Jugador3") (civilizacion templado) (puntos_creencia_si 1.15) (puntos_creencia_no 0.0) (puntos_felicidad 0.0))
+==> f-22    (posible_civilizacion (empleado "Jugador3") (civilizacion templado) (puntos_creencia_si 1.15) (puntos_creencia_no 0.0) (puntos_felicidad -1.0))
+Jugador3 perderia 1 puntos de felicidad al dar el planeta PRP-2 a Jugador1 si tuviera una civilizacion de clima templado.
+
+<== f-8     (posible_civilizacion (empleado "Jugador3") (civilizacion caliente) (puntos_creencia_si -0.25) (puntos_creencia_no 0.0) (puntos_felicidad 0.0))
+==> f-23    (posible_civilizacion (empleado "Jugador3") (civilizacion caliente) (puntos_creencia_si -0.25) (puntos_creencia_no 0.0) (puntos_felicidad -6.0))
+Jugador3 perderia 6 puntos de felicidad al dar el planeta PRP-2 a Jugador1 si tuviera una civilizacion de clima caliente.
+
+FIRE   11 calcular_puntuacion_posibles_civilizaciones_cartas_aceptadas_no_activos: f-14,[gen6861],[gen6862],[gen6863],[gen6886],f-15,f-19,f-5,f-21,f-22,f-23
+<== f-15    (posible_civilizacion (empleado "Jugador2") (civilizacion frio) (puntos_creencia_si 0.0) (puntos_creencia_no 1.0) (puntos_felicidad 0.0))
+==> f-24    (posible_civilizacion (empleado "Jugador2") (civilizacion frio) (puntos_creencia_si 0.0) (puntos_creencia_no 1.0) (puntos_felicidad 6.0))
+Jugador2 obtendria 6 puntos de felicidad al aceptar el planeta PTE-3 de Jugador1 si tuviera una civilizacion de clima frio.
+
+<== f-19    (posible_civilizacion (empleado "Jugador2") (civilizacion templado) (puntos_creencia_si 0.8) (puntos_creencia_no 0.0) (puntos_felicidad 0.0))
+==> f-25    (posible_civilizacion (empleado "Jugador2") (civilizacion templado) (puntos_creencia_si 0.8) (puntos_creencia_no 0.0) (puntos_felicidad 7.0))
+Jugador2 obtendria 7 puntos de felicidad al aceptar el planeta PTE-3 de Jugador1 si tuviera una civilizacion de clima templado.
+
+<== f-5     (posible_civilizacion (empleado "Jugador2") (civilizacion caliente) (puntos_creencia_si 0.15) (puntos_creencia_no 0.0) (puntos_felicidad 0.0))
+==> f-26    (posible_civilizacion (empleado "Jugador2") (civilizacion caliente) (puntos_creencia_si 0.15) (puntos_creencia_no 0.0) (puntos_felicidad 6.0))
+Jugador2 obtendria 6 puntos de felicidad al aceptar el planeta PTE-3 de Jugador1 si tuviera una civilizacion de clima caliente.
+
+<== f-21    (posible_civilizacion (empleado "Jugador3") (civilizacion frio) (puntos_creencia_si 0.0) (puntos_creencia_no 0.5) (puntos_felicidad -6.0))
+==> f-27    (posible_civilizacion (empleado "Jugador3") (civilizacion frio) (puntos_creencia_si 0.0) (puntos_creencia_no 0.5) (puntos_felicidad 0.0))
+Jugador3 obtendria 6 puntos de felicidad al aceptar el planeta PTE-3 de Jugador1 si tuviera una civilizacion de clima frio.
+
+<== f-22    (posible_civilizacion (empleado "Jugador3") (civilizacion templado) (puntos_creencia_si 1.15) (puntos_creencia_no 0.0) (puntos_felicidad -1.0))
+==> f-28    (posible_civilizacion (empleado "Jugador3") (civilizacion templado) (puntos_creencia_si 1.15) (puntos_creencia_no 0.0) (puntos_felicidad 6.0))
+Jugador3 obtendria 7 puntos de felicidad al aceptar el planeta PTE-3 de Jugador1 si tuviera una civilizacion de clima templado.
+
+<== f-23    (posible_civilizacion (empleado "Jugador3") (civilizacion caliente) (puntos_creencia_si -0.25) (puntos_creencia_no 0.0) (puntos_felicidad -6.0))
+==> f-29    (posible_civilizacion (empleado "Jugador3") (civilizacion caliente) (puntos_creencia_si -0.25) (puntos_creencia_no 0.0) (puntos_felicidad 0.0))
+Jugador3 obtendria 6 puntos de felicidad al aceptar el planeta PTE-3 de Jugador1 si tuviera una civilizacion de clima caliente.
+
+FIRE   12 calcular_puntuacion_posibles_civilizaciones_cartas_ofertadas_no_activos: f-14,[gen6861],[gen6862],[gen6875],f-24,f-25,f-26
+<== f-24    (posible_civilizacion (empleado "Jugador2") (civilizacion frio) (puntos_creencia_si 0.0) (puntos_creencia_no 1.0) (puntos_felicidad 6.0))
+==> f-30    (posible_civilizacion (empleado "Jugador2") (civilizacion frio) (puntos_creencia_si 0.0) (puntos_creencia_no 1.0) (puntos_felicidad -2.0))
+Jugador2 perderia 8 puntos de felicidad al dar el planeta PFE-4 a Jugador1 si tuviera una civilizacion de clima frio.
+
+<== f-25    (posible_civilizacion (empleado "Jugador2") (civilizacion templado) (puntos_creencia_si 0.8) (puntos_creencia_no 0.0) (puntos_felicidad 7.0))
+==> f-31    (posible_civilizacion (empleado "Jugador2") (civilizacion templado) (puntos_creencia_si 0.8) (puntos_creencia_no 0.0) (puntos_felicidad 2.0))
+Jugador2 perderia 5 puntos de felicidad al dar el planeta PFE-4 a Jugador1 si tuviera una civilizacion de clima templado.
+
+<== f-26    (posible_civilizacion (empleado "Jugador2") (civilizacion caliente) (puntos_creencia_si 0.15) (puntos_creencia_no 0.0) (puntos_felicidad 6.0))
+==> f-32    (posible_civilizacion (empleado "Jugador2") (civilizacion caliente) (puntos_creencia_si 0.15) (puntos_creencia_no 0.0) (puntos_felicidad 7.0))
+Jugador2 perderia -1 puntos de felicidad al dar el planeta PFE-4 a Jugador1 si tuviera una civilizacion de clima caliente.
+
+FIRE   13 asignar_civilizacion_determinar_utilidad_intercambios_no_activos_1: f-14,[gen6861],[gen6862],,,f-32,f-30,f-31
+Jugador2 obtendria 7.0 puntos de felicidad si tiene una civilizacion de clima caliente.
+La creencia sobre si Jugador2 puede tener esta civilizacion es: 0.15 puntos de que si, y 0.0 puntos de que no.
+
+Jugador2 obtendria -2.0 puntos de felicidad si tiene una civilizacion de clima frio.
+La creencia sobre si Jugador2 puede tener esta civilizacion es: 0.0 puntos de que si, y 1.0 puntos de que no.
+
+Jugador2 obtendria 2.0 puntos de felicidad si tiene una civilizacion de clima templado.
+La creencia sobre si Jugador2 puede tener esta civilizacion es: 0.8 puntos de que si, y 0.0 puntos de que no.
+
+==> f-33    (civilizacion_asignada_calculos (empleado "Jugador2") (civilizacion caliente))
+Se asigna la civilizacion de clima caliente a Jugador2 para calcular sus puntos de utilidad, ya que es la que le proporciona mas puntos de felicidad y esta entre las que es mas probable que tenga.
+
+==> f-34    (puntos_utilidad_no_activo (empleado "Jugador2") (utilidad 7.0))
+Jugador2 obtendria 7.0 puntos de utilidad del intercambio, al ofertar 1 planetas habitables y 0 planetas de recursos, mientras el jugador activo oferta 1 planetas habitables y 0 planetas de recursos.
+
+
+FIRE   14 asignar_civilizacion_determinar_utilidad_intercambios_no_activos_1: f-14,[gen6861],[gen6863],,,f-28,f-29,f-27
+Jugador3 obtendria 6.0 puntos de felicidad si tiene una civilizacion de clima templado.
+La creencia sobre si Jugador3 puede tener esta civilizacion es: 1.15 puntos de que si, y 0.3 puntos de que no.
+
+Jugador3 obtendria 0.0 puntos de felicidad si tiene una civilizacion de clima caliente.
+La creencia sobre si Jugador3 puede tener esta civilizacion es: -0.25 puntos de que si, y 0.0 puntos de que no.
+
+Jugador3 obtendria 0.0 puntos de felicidad si tiene una civilizacion de clima frio.
+La creencia sobre si Jugador3 puede tener esta civilizacion es: 0.0 puntos de que si, y 0.5 puntos de que no.
+
+==> f-35    (civilizacion_asignada_calculos (empleado "Jugador3") (civilizacion templado))
+Se asigna la civilizacion de clima templado a Jugador3 para calcular sus puntos de utilidad, ya que es la que le proporciona mas puntos de felicidad y esta entre las que es mas probable que tenga.
+
+==> f-36    (puntos_utilidad_no_activo (empleado "Jugador3") (utilidad 6.0))
+Jugador3 obtendria 6.0 puntos de utilidad del intercambio, al ofertar 0 planetas habitables y 1 planetas de recursos, mientras el jugador activo oferta 1 planetas habitables y 0 planetas de recursos.
+
+
+FIRE   15 determinar_utilidad_intercambios_activo: f-0,,f-35,f-33,[gen6861],[gen6863],[gen6862],f-13,f-12,f-36,f-34
+<== f-13    (puntos_utilidad_activo (empleado "Jugador3") (utilidad 0.0))
+==> f-37    (puntos_utilidad_activo (empleado "Jugador3") (utilidad -3.5))
+<== f-12    (puntos_utilidad_activo (empleado "Jugador2") (utilidad -6.8))
+==> f-38    (puntos_utilidad_activo (empleado "Jugador2") (utilidad -11.8))
+Teniendo en cuenta que la positividad acumulada de Jugador3 es -2.5 y que obtendria 6.0 puntos de utilidad, Jugador1 obtendria una utilidad de -3.5 si aceptara la oferta de Jugador3.
+
+Teniendo en cuenta que la positividad acumulada de Jugador2 es -2.0 y que obtendria 7.0 puntos de utilidad, Jugador1 obtendria una utilidad de -11.8 si aceptara la oferta de Jugador2.
+
+==> f-39    (utilidad_activo_impresa)
+
+FIRE   16 aceptar_rechazar_oferta_5: f-39,,[gen6861],[gen6863],[gen6862],f-37,f-38
+Jugador1 estudia la oferta de Jugador3, ya que a pesar de ofrecer planetas que proporcionan utilidad negativa, si Jugador1 es quien mas puntuacion acumulada tiene despues del intercambio, pero con una diferencia de 10 puntos, Jugador1 aceptara la oferta menos negativa.
+
+==> f-40    (oferta (empleado "Jugador2") (decision rechazada))
+
+Jugador1 debe obtener como minimo -34 puntos de utilidad para que el intercambio con Jugador3 no resulte perjudicial, teniendo en cuenta que Jugador1 tiene 217 puntos de puntuacion acumulada frente a los 173 del siguiente con mas puntuacion acumulada.
+
+Como Jugador1 obtiene una utilidad de -3.5 aceptando el intercambio que le ofrece Jugador3, finalmente acepta su oferta.
+
+==> f-41    (oferta (empleado "Jugador3") (decision aceptada))
+==> f-42    (decision_tomada)
+
+FIRE   17 decidir_estado_animo_oferta_rechazada_4: f-42,[gen6862],f-40,,f-9,f-31
+El estado de animo de Jugador2 se mantiene triste, al no haber ganado los mas de 0 puntos de felicidad que habria ganado de haber sido aceptada su oferta (2.0).
+
+==> f-43    (nuevo_estado_animo (empleado "Jugador2") (estado_animo triste))
+
+FIRE   18 modificar_creencia_civilizacion_y_positividad_acumulada_7: f-42,[gen6862],f-43,,f-40,f-32,f-33
+<== f-32    (posible_civilizacion (empleado "Jugador2") (civilizacion caliente) (puntos_creencia_si 0.15) (puntos_creencia_no 0.0) (puntos_felicidad 7.0))
+==> f-44    (posible_civilizacion (empleado "Jugador2") (civilizacion caliente) (puntos_creencia_si 0.3) (puntos_creencia_no 0.0) (puntos_felicidad 7.0))
+Se suma 0.15 a la creencia de que Jugador2 tiene una civilizacion de clima caliente.
+
+Se disminuye la positividad acumulada de Jugador2 en 0.5 puntos al mantener su estado de animo triste despues de ser aceptada su oferta, con lo que tiene -2.5 puntos de positividad acumulada.
+
+==> f-45    (modificaciones_realizadas (empleado "Jugador2"))
+
+FIRE   19 decidir_estado_animo_oferta_aceptada_6: f-42,[gen6863],f-41,,f-10,f-29
+El estado de animo de Jugador3 se mantiene triste, al haber ganado 0 o menos puntos de felicidad con el intercambio (0.0).
+
+==> f-46    (nuevo_estado_animo (empleado "Jugador3") (estado_animo triste))
+
+FIRE   20 modificar_creencia_civilizacion_y_positividad_acumulada_3: f-42,[gen6863],f-46,,f-41,f-28,f-35
+<== f-28    (posible_civilizacion (empleado "Jugador3") (civilizacion templado) (puntos_creencia_si 1.15) (puntos_creencia_no 0.3) (puntos_felicidad 6.0))
+==> f-47    (posible_civilizacion (empleado "Jugador3") (civilizacion templado) (puntos_creencia_si 0.9) (puntos_creencia_no 0.3) (puntos_felicidad 6.0))
+Se resta 0.25 a la creencia de que Jugador3 tiene una civilizacion de clima templado.
+
+Se disminuye la positividad acumulada de Jugador3 en 0.5 puntos al mantener su estado de animo triste despues de ser aceptada su oferta, con lo que tiene -3.0 puntos de positividad acumulada.
+
+==> f-48    (modificaciones_realizadas (empleado "Jugador3"))
+
+FIRE   21 regla_final: f-0,,f-43,f-46
+==> f-49    (fin_del_turno)
